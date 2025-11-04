@@ -1,0 +1,105 @@
+# ==== Node / pnpm ====
+node_modules/
+# Lockfiles are typically committed; keep them tracked
+# pnpm-lock.yaml
+# package-lock.json
+# yarn.lock
+npm-debug.log*
+pnpm-debug.log*
+yarn-error.log*
+
+# ==== VitePress ====
+.vitepress/cache/
+.vitepress/dist/
+.vitepress/**/.cache/
+.vitepress/**/.temp/
+
+# If you output the site elsewhere (uncomment and adjust)
+# dist/
+
+# ==== Build outputs (general) ====
+dist/
+build/
+coverage/
+
+# ==== IDE / Editor ====
+.idea/
+.vscode/
+.history/
+*.swp
+*.swo
+
+# ==== macOS ====
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icon must end with two CR
+Icon
+
+# Thumbnails
+._*
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# ==== Python (helper scripts) ====
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+ENV/
+env/
+.pytest_cache/
+.mypy_cache/
+
+# ==== Data / temp ====
+*.log
+*.tmp
+*.temp
+*.bak
+*.orig
+*.rej
+
+# ==== Archives / binaries ====
+*.zip
+*.tar
+*.gz
+*.bz2
+*.7z
+*.rar
+*.dmg
+*.exe
+*.out
+*.obj
+
+# ==== Draw.io autosave/cache ====
+*.bkp
+*.backup
+*.~lock.*
+
+# ==== Local notes or generated indexes (if any) ====
+# The project runs scripts/generate-indexes.mjs to create README.md inside docs/* folders.
+# Those README.md files are meant to be committed, so we DO NOT ignore them here.
+
+# ==== Misc ====
+.env
+.env.*.local
+.env.local
+.envrc
+*.local
+
