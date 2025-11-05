@@ -167,7 +167,9 @@ function createSidebarItems(rootDocsPath: string, currentDir: string): SidebarIt
 export function generateNavAndSidebar(docsDir: string) {
   const rootDocsPath = path.resolve(process.cwd(), docsDir)
   const nav: NavItem[] = []
-  const sidebar: Sidebar = {}
+  
+  // 构建共享的侧边栏项目数组
+  const sharedSidebarItems: SidebarItem[] = []
 
   // 读取并筛选顶层目录
   const topLevelDirs = fs
@@ -182,20 +184,16 @@ export function generateNavAndSidebar(docsDir: string) {
     const topLevelDirPath = path.join(rootDocsPath, dir)
     const link = `/${dir}/`
 
-    // 创建导航项
-    nav.push({
-      text: getCleanTitle(dir),
+    // 将每个顶层目录添加到共享侧边栏
+    sharedSidebarItems.push({
+      text: getCleanTitle(dir), // 侧边栏分组的大标题
       link: link,
     })
+  }
 
-    // 创建侧边栏
-    // 这是关键的修正：将生成的 items 数组包装在顶层对象中
-    sidebar[link] = [
-      {
-        text: getCleanTitle(dir), // 侧边栏分组的大标题
-        items: createSidebarItems(rootDocsPath, topLevelDirPath),
-      },
-    ]
+  // 所有路径共享同一个侧边栏
+  const sidebar: Sidebar = {
+    '/': sharedSidebarItems
   }
 
   return { nav, sidebar }
